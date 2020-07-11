@@ -1,2 +1,2 @@
 # ML-Theory-Project
-spam classsifier
+spam classsifier using naive bayes
