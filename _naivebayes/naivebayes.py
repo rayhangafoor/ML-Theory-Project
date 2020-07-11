@@ -309,7 +309,20 @@ print('The accuracy on {0} testing samples is:{1:.1f}%'.format(len(Y_test), corr
 # plt.title('Receiver Operating Characteristic')
 # plt.legend(loc="lower right")
 # plt.show()
+print("Choosing the best Classifier")
+x = raw_input("Do you wish to test the example.txt : (y or n) ")
+new_email = []
+if x == 'y':
+    for filename in glob.glob(os.path.join('NewEmail.txt')):
+        with io.open(filename, 'r', encoding = "ISO-8859-1") as infile:
+            new_email.append(infile.read())
 
+    cleaned_test = clean_text(new_email)
+    term_docs_test = cv.transform(cleaned_test)
+    posterior = get_posterior(term_docs_test, prior, likelihood)
+    print(posterior)
+    
+print("Exiting Code")
 
 # # In[ ]:
 
