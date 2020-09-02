@@ -95,43 +95,13 @@ def get_posterior(term_document_matrix,prior,likelihood):
   return posteriors
 
 
-# pos_prob = prediction_prob[:, 1]
-# thresholds = np.arange(0.0, 1.2, 0.1)
-# true_pos, false_pos = [0]*len(thresholds), [0]*len(thresholds)
-# for pred, y in zip(pos_prob, Y_test):
-#     for i, threshold in enumerate(thresholds):
-#         if pred >= threshold:
-#         # if truth and prediction are both 1
-#             if y == 1:
-#                 true_pos[i] += 1
-#         # if truth is 0 while prediction is 1
-#             else:
-#                 false_pos[i] += 1
-#         else:
-#             break
 
 
 
-# true_pos_rate = [tp / 516.0 for tp in true_pos]
-# false_pos_rate = [fp / 1191.0 for fp in false_pos]
 
 
-# import matplotlib.pyplot as plt
-# plt.figure()
-# lw = 2
-# plt.plot(false_pos_rate, true_pos_rate, color='darkorange',
-# lw=lw)
-# plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
-# plt.xlim([0.0, 1.0])
-# plt.ylim([0.0, 1.05])
-# plt.xlabel('False Positive Rate')
-# plt.ylabel('True Positive Rate')
-# plt.title('Receiver Operating Characteristic')
-# plt.legend(loc="lower right")
-# plt.show()
 
-
-k = 10
+k = 8
 k_fold = StratifiedKFold(n_splits=k)
 cleaned_e_mails = clean_text(e_mails)
 cleaned_e_mails_np = np.array(cleaned_e_mails)
